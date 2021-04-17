@@ -6,8 +6,11 @@ import (
 	"github.com/timwmillard/proglog/server"
 )
 
+const bindAddress = ":8080"
+
 func main() {
-	srv := server.NewHTTPServer(":8080")
+	srv := server.NewHTTPServer(bindAddress)
+	log.Printf("Starting proglog server at %v", bindAddress)
 	err := srv.ListenAndServe()
 	log.Fatal(err)
 }

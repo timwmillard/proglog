@@ -12,6 +12,7 @@ func NewHTTPServer(addr string) *http.Server {
 	r := mux.NewRouter()
 	r.HandleFunc("/", httpsrv.handleProduce).Methods("POST")
 	r.HandleFunc("/", httpsrv.handleConsume).Methods("GET")
+	registerProfile(r)
 	return &http.Server{
 		Addr:    addr,
 		Handler: r,
